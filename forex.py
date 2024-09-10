@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 TELEGRAM_API_TOKEN = os.getenv('TELEGRAM_API_TOKEN')
 ALPHA_VANTAGE_API_KEY = os.getenv('ALPHA_VANTAGE_API_KEY')
 
-# Defining the list of forex trading pairs you want to track
+# Defining the list of forex trading pairs for tracking
 PAIRS = [('USD', 'EUR'), ('USD', 'JPY'), ('GBP', 'USD'), ('AUD', 'USD'), ('USD', 'CHF')]
 
 def start(update: Update, context: CallbackContext) -> None:
@@ -32,7 +32,7 @@ def forex(update: Update, context: CallbackContext) -> None:
     Fetches real-time forex prices for predefined trading pairs
     and sends the rates to the user.
     """
-    # Initialize the ForeignExchange object with your Alpha Vantage API key
+    # Initialize the ForeignExchange object with the Alpha Vantage API key
     fx = ForeignExchange(key=ALPHA_VANTAGE_API_KEY)
     message = ''
     # Iterating through the list of forex trading pairs
@@ -57,7 +57,7 @@ def main() -> None:
     Initializes the Updater and Dispatcher,
     registers command handlers, and starts polling.
     """
-    # Creating an Updater object with your Telegram bot token
+    # Creating an Updater object with the Telegram bot token
     if not TELEGRAM_API_TOKEN:
         raise ValueError('Telegram API token not set in environment variables.')
     updater = Updater(TELEGRAM_API_TOKEN)

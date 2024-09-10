@@ -33,11 +33,5 @@ virtualenv env
 Ensure you have Python installed, then install the required packages:
 
 ```bash
-pip install python-telegram-bot alpha_vantage python-dotenv
-```
-
-OR
-
-```bash
 pip3 install -r requirements.txt
 ```
